@@ -1,0 +1,78 @@
+.photo-container {
+  width : $container-width;
+  @media only screen
+         and (max-width : $container-width) {
+    display : none;
+  }
+}
+
+.photo {
+  display         : inline-block;
+  width           : $content-width;
+  height          : $content-width;
+  background-size : cover;
+}
+
+.previews {
+  display        : inline-block;
+  width          : 390px;
+  padding-left   : 2 * $side-gap;
+  vertical-align : top;
+}
+
+.thumbnail {
+  display        : inline-block;
+  width          : 90px;
+  height         : 90px;
+  padding-right  : 5px;
+  padding-bottom : 5px;
+  vertical-align : top;
+  cursor         : pointer;
+}
+
+.photo-wall {
+  width : 100vw;
+  @media only screen
+         and (min-width : $container-width) {
+    display : none;
+  }
+}
+
+.photo-brick {
+  display        : inline-block;
+  width          : 49vw;
+  height         : 49vw;
+  padding        : 1px;
+  vertical-align : top;
+}
+
+.modal {
+  z-index          : 1;
+  display          : none;
+  position         : fixed;
+  top              : 0;
+  left             : 0;
+  width            : 100vw;
+  height           : 100vh;
+  padding-top      : 100px;
+  overflow         : auto;
+  background-color : rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  display : block;
+  width   : 90vw;
+  height  : 90vw;
+  margin  : auto;
+}
+
+.close {
+  position    : absolute;
+  top         : 15px;
+  right       : 35px;
+  color       : #f1f1f1;
+  font-size   : 40px;
+  font-weight : bold;
+  transition  : 0.3s;
+  cursor      : pointer;
+}

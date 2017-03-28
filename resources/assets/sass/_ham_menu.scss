@@ -1,0 +1,60 @@
+.ham-menu {
+  position         : fixed;
+  top              : 0;
+  width            : 0;
+  height           : 100%;
+  overflow-x       : hidden;
+  overflow-y       : auto;
+  background-color : $black2;
+  font-size        : $font-size-big;
+  transition       : width 0.3s;
+}
+
+.ham-menu-element {
+  padding    : 20px 10px;
+  text-align : center;
+
+  & > a {
+    color       : $white;
+    font-weight : bold;
+  }
+
+  & > span {
+    color       : $white;
+    font-weight : bold;
+  }
+}
+
+.ham-sub-menu-title {
+  cursor : pointer;
+
+  &:hover {
+    color : $orange;
+  }
+}
+
+.ham-sub-menu-element {
+  padding-top : 5px;
+
+  & > a {
+    color : $gray;
+  }
+}
+
+.ham-menu-neighbor {
+  width      : 100%;
+  transition : margin-left 0.3s;
+}
+
+.ham-menu-control {
+  display          : block;
+  width            : 30px;
+  height           : 30px;
+  margin           : 10px;
+  background-image : url(/storage/bars.png);
+  background-size  : cover;
+  @media only screen
+         and (min-width : $container-width) {
+    display : none;
+  }
+}

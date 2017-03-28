@@ -1,0 +1,10 @@
+.foot {
+  padding     : 10px 0;
+  text-align  : right;
+  font-size   : $font-size-small;
+  line-height : 150%;
+  @media only screen
+         and (max-width : $container-width) {
+    padding : 10px $side-gap;
+  }
+}

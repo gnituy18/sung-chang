@@ -1,0 +1,13 @@
+.intro {
+  display        : inline-block;
+  max-width      : $content-width;
+  margin-right   : 2 * $side-gap;
+  vertical-align : top;
+  font-size      : $font-size-small;
+  line-height    : 170%;
+  @media only screen
+         and (max-width : $container-width) {
+    margin-right : 0;
+    padding      : 0 $side-gap;
+  }
+}

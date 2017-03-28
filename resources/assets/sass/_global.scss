@@ -1,0 +1,13 @@
+html {
+  height : 100%;
+}
+
+body {
+  width            : 100vw;
+  height           : calc(100% - $nav-height);
+  margin           : 0;
+  padding          : 0;
+  background-color : $gray;
+  font-family      : $font-family-base;
+  font-weight      : 200;
+}

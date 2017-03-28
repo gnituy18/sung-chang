@@ -1,0 +1,13 @@
+.side-menu {
+  display      : inline-block;
+  padding-left : 250px;
+  font-size    : 8pt;
+  @media only screen
+         and (max-width : $container-width) {
+    display : none;
+  }
+}
+
+.s-active {
+  color : $orange;
+}
