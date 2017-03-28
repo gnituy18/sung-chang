@@ -1,7 +1,7 @@
 .nav {
   position         : fixed;
   top              : 0;
-  width            : 100%;
+  width            : 100vw;
   padding-bottom   : $gap-normal;
   background-color : $gray;
 }
@@ -42,7 +42,8 @@
 
 .sub-menu {
   display          : none;
-  margin-left      : 20px;
+  margin-top       : 3px;
+  margin-left      : 5px;
   padding          : 8px 5px;
   background-color : $black2;
   text-align       : left;

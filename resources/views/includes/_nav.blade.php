@@ -9,12 +9,15 @@
       <span>|</span>
     @else
       <li class="menu-element {{ (isset($activeProduct) && ($activeProduct->category->eng_name === $category->eng_name)) ? 'active' : '' }}">
-        <span style="display:inline-block">{{$category->name}} {{$category->eng_name}}</span>
-        <ul class="sub-menu">
-          @foreach ($category->products as $product)
-            <li><a href="{{ route('product',['product'=>$product->eng_name]) }}">{{$product->name}} {{$product->eng_name}}</a></li>
-          @endforeach
-        </ul>
+        <span style="display:inline-block">
+          {{$category->name}} {{$category->eng_name}}<br>
+          <ul class="sub-menu">
+            @foreach ($category->products as $product)
+              <li><a href="{{ route('product',['product'=>$product->eng_name]) }}">{{$product->name}} {{$product->eng_name}}</a></li>
+            @endforeach
+          </ul>
+        </span>
+
       </li>
       <span>|</span>
     @endif

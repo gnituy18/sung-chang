@@ -31,7 +31,8 @@
 }
 
 .photo-wall {
-  width : 100vw;
+  width        : 99vw;
+  padding-left : 1vw;
   @media only screen
          and (min-width : $container-width) {
     display : none;
@@ -40,9 +41,8 @@
 
 .photo-brick {
   display        : inline-block;
-  width          : 49vw;
-  height         : 49vw;
-  padding        : 1px;
+  width          : 32vw;
+  height         : 32vw;
   vertical-align : top;
 }
 

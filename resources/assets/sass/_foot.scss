@@ -8,3 +8,18 @@
     padding : 10px $side-gap;
   }
 }
+
+.contact-foot {
+  @media only screen
+         and (max-width : $container-width) {
+    display : none;
+  }
+}
+
+
+.rwd-foot {
+  @media only screen
+         and (min-width : $container-width) {
+    display : none;
+  }
+}
