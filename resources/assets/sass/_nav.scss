@@ -42,8 +42,8 @@
 
 .sub-menu {
   display          : none;
+  position         : absolute;
   margin-top       : 3px;
-  margin-left      : 5px;
   padding          : 8px 5px;
   background-color : $black2;
   text-align       : left;
