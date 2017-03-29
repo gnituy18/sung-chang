@@ -1,5 +1,6 @@
 .side-menu {
-  display      : inline-block;
+  display      : inline;
+  float        : right;
   padding-left : 250px;
   font-size    : 8pt;
   @media only screen

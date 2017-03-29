@@ -3,7 +3,7 @@
 @section('content')
   @include('includes._banner', ['url' => '/storage/'.$currentCategory->eng_name.'-banner.png'])
 
-  <div>
+  <div style="padding-bottom:15px;">
     <div class="intro">
       @include('includes._title', ['title' => $currentCategory->name])
       <p>{{ $currentCategory->intro }}</p>
