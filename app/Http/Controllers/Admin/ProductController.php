@@ -77,6 +77,6 @@ class ProductController extends Controller
         $this->product->category()->associate($category);
         $this->product->save();
 
-        return redirect()->route('products.index', ['category' => $category]);
+        return redirect()->route('products.show', ['category' => $category, 'products' => Product::where('category_id', $category->id)->orderBy('order')->get() , 'product' => $this->product, 'photos' => Photo::where('product_id', $this->product->id)->orderBy('order')->get()]);
     }
 }
