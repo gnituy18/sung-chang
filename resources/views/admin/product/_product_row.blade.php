@@ -1,4 +1,5 @@
-<a href="{{ route('products.show',['product' => $product->eng_name]) }}" class="list-group-item">
-  <h4 class="list-group-item-heading">{{ $product->name }}</h4>
-  <span class="list-group-item-heading">{{ $product->eng_name }}</span>
-</a>
+<li class="{{url()->current()===route('products.show',['category' => $product->category->eng_name, 'product' => $product->eng_name]) ? 'active' : ''}}">
+  <a href="/{{$product->category->eng_name}}/{{$product->eng_name}}">
+    {{ $product->name }}
+  </a>
+</li>

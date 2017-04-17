@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Photo;
 use App\Models\Category;
 use App\Http\Requests\ProductRequest;
 
@@ -19,9 +20,14 @@ class ProductController extends Controller
         $this->product = new Product;
     }
 
-    public function index()
+    public function index(Category $category)
     {
-        return view('admin.product.index');
+        session(['tab' => $category->eng_name]);
+        $productName = $category->products()->first();
+        if (empty($productName)) {
+            return view('admin.product.show', ['category' => $category]);
+        }
+        return redirect()->route('products.show', ['category' => $category->eng_name, 'product' => $productName->eng_name]);
     }
 
     public function create(Category $category)
@@ -29,9 +35,9 @@ class ProductController extends Controller
         return view('admin.product.create', ['category' => $category]);
     }
 
-    public function show(Product $product)
+    public function show(Category $category, Product $product)
     {
-        return view('admin.product.show', ['product' => $product]);
+        return view('admin.product.show', ['category' => $category, 'products' => Product::where('category_id', $category->id)->orderBy('order')->get() , 'product' => $product, 'photos' => Photo::where('product_id', $product->id)->orderBy('order')->get()]);
     }
 
     public function destroy(Request $request, Product $product)
@@ -42,28 +48,35 @@ class ProductController extends Controller
                 $photo->delete();
             }
             $product->delete();
-            return redirect()->route('products.index');
+            return redirect()->route('products.index', ['category' => $product->category]);
         } else {
             return back();
         }
     }
 
-    public function update(ProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Category $category, Product $product)
     {
+        if ($request->order !== $product->order) {
+            $productSwitch = Product::where('category_id', $category->id)->where('order', $request->order)->first();
+            $temp = $productSwitch->order;
+            $productSwitch->order = $product->order;
+            $product->order = $temp;
+            $productSwitch->save();
+        }
         $product->name = $request->name;
         $product->eng_name = $request->eng_name;
         $product->save();
-        return redirect()->route('products.index');
+        return redirect()->route('products.show', ['category' => $product->category->eng_name, 'product' => $product->eng_name]);
     }
 
-    public function store(ProductRequest $request)
+    public function store(ProductRequest $request, Category $category)
     {
-        $category = Category::where('id', $request->category)->first();
         $this->product->name = $request->name;
         $this->product->eng_name = $request->eng_name;
+        $this->product->order = Product::where('category_id', $category->id)->count() + 1;
         $this->product->category()->associate($category);
         $this->product->save();
 
-        return redirect()->route('products.index');
+        return redirect()->route('products.index', ['category' => $category]);
     }
 }
