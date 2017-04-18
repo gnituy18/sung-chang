@@ -18,7 +18,10 @@
     </div>
     <div class="previews">
       @foreach ($activeProduct->photos as $photo)
-        <img id="{{ $photo->name }}" class="thumbnail" src="{{ $photo->path }}" alt="{{ $photo->name }}">
+        <div id="{{ $photo->name }}" class="thumbnail" style="background-image:url({{$photo->path}})">
+
+        </div>
+
       @endforeach
     </div>
   </div>

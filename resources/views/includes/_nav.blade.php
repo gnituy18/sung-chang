@@ -24,4 +24,3 @@
   @endforeach
   <li style="margin-right:-25px;" class="menu-element {{ url()->current()==route('contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">聯絡我們 Contact</a></li>
 </nav>
-<div class="ham-menu-control"></div>

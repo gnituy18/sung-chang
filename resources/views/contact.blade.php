@@ -1,7 +1,9 @@
 @extends('layouts.contact')
 
 @section('content')
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.576423954043!2d121.79580941568405!3d24.67270415883182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3467e60872e8efb7%3A0xa37016383734daae!2zMjY15a6c6Jit57ij576F5p2x6Y6u5Lit5bGx6Lev5LiA5q61NTfomZ8!5e0!3m2!1szh-TW!2stw!4v1490666588020" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  <div id="map" style="margin-top:80px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.937214881214!2d121.7656734726904!3d24.72569910901135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3467e5002890c497%3A0x98f02fa8a18ee073!2zMjYw5a6c6Jit57ij5a6c6Jit5biC5Lit5bGx6Lev5LiA5q61MjQ15be3NTfomZ8!5e0!3m2!1szh-TW!2stw!4v1492498545471" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
   <div class="contact-foot" style="line-height:150%;padding-top:50px;">
     <span>松昌股份有限公司</span>
     <span class="float-right">SUNG CHANG WOOD CO.,LTD.</span><br>
@@ -33,4 +35,15 @@
       Mon~Fri / 08:00-17:00<br>
     </p>
   </div>
+  <script>
+    window.document.getElementById('map').onclick = map
+    function map(){
+      if( (navigator.platform.indexOf("iPhone") != -1)
+          || (navigator.platform.indexOf("iPod") != -1)
+          || (navigator.platform.indexOf("iPad") != -1))
+           window.open("maps://maps.google.com/maps?daddr=lat,long&amp;ll=");
+      else
+           window.open("http://maps.google.com/maps?daddr=lat,long&amp;ll=");
+    }
+  </script>
 @endsection

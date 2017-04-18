@@ -3,14 +3,16 @@
   var hamMenu = window.document.getElementsByClassName('ham-menu')[0]
   var hamMenuNeighbor = window.document.getElementsByClassName('ham-menu-neighbor')[0]
   var hamMenuControl = window.document.getElementsByClassName('ham-menu-control')[0]
-
+  hamMenuNeighbor.onclick = function(event){
+    console.log(event.target.className)
+    if(event.target.className !== 'ham-menu-control' && hamStatus)
+      hamMenuControl.click()
+  }
   hamMenuControl.onclick = function() {
     if(hamStatus){
       hamMenu.style.width = '0'
-      hamMenuNeighbor.style.marginLeft = '0'
     } else {
       hamMenu.style.width = '200px'
-      hamMenuNeighbor.style.marginLeft = '200px'
     }
     hamStatus = !hamStatus
   }
@@ -21,8 +23,7 @@
     thumbnails[x].onclick = showPhoto.bind(thumbnails[x])
   }
   function showPhoto(){
-    console.log(this.src)
-    window.document.getElementById('show').style.backgroundImage = 'url('+this.src+')'
+    window.document.getElementById('show').style.cssText = this.style.cssText;
     window.document.getElementById('name').innerText = this.id
   }
   if(thumbnails.length > 0)

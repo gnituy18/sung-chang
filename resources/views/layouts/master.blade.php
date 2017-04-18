@@ -2,7 +2,7 @@
 <html>
   @include('includes._head')
   <body>
-    @include('includes._ham_menu', ['some' => 'data'])
+    @include('includes._ham_menu')
     <div class="ham-menu-neighbor">
       <div class="container">
         <div class="nav">

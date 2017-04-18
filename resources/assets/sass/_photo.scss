@@ -1,5 +1,7 @@
 .photo-container {
-  width : $container-width;
+  display     : inline-block;
+  width       : $container-width;
+  padding-top : 0.4cm;
   @media only screen
          and (max-width : $container-width) {
     display : none;
@@ -7,10 +9,12 @@
 }
 
 .photo {
-  display         : inline-block;
-  width           : $content-width;
-  height          : $content-width;
-  background-size : cover;
+  display             : inline-block;
+  width               : $content-width;
+  height              : $content-width;
+  background-position : center;
+  background-size     : cover;
+  background-size     : cover;
 }
 
 .previews {
@@ -21,13 +25,15 @@
 }
 
 .thumbnail {
-  display        : inline-block;
-  width          : 90px;
-  height         : 90px;
-  padding-right  : 5px;
-  padding-bottom : 5px;
-  vertical-align : top;
-  cursor         : pointer;
+  display             : inline-block;
+  width               : 90px;
+  height              : 90px;
+  margin-bottom       : 8px;
+  margin-left         : 5px;
+  background-position : center;
+  background-size     : cover;
+  vertical-align      : top;
+  cursor              : pointer;
 }
 
 .photo-wall {
@@ -43,6 +49,7 @@
   display        : inline-block;
   width          : 32vw;
   height         : 32vw;
+  margin-bottom  : 3px;
   vertical-align : top;
 }
 
