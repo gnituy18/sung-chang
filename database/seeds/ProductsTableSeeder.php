@@ -14,6 +14,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->truncate();
         DB::table('products')->insert([
         'category_id' => 3,
+        'order' => 1,
         'name' => '實木藝品',
         'eng_name' => 'collection',
       ]);
