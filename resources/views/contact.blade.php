@@ -2,7 +2,7 @@
 
 @section('content')
   <div id="map" style="margin-top:80px;">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.937214881214!2d121.7656734726904!3d24.72569910901135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3467e5002890c497%3A0x98f02fa8a18ee073!2zMjYw5a6c6Jit57ij5a6c6Jit5biC5Lit5bGx6Lev5LiA5q61MjQ15be3NTfomZ8!5e0!3m2!1szh-TW!2stw!4v1492498545471" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1812.8340231237264!2d121.78601955792533!3d24.669551996036062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3467e67325bfa5c1%3A0x1d586778fe51cf46!2zMjY15Y-w54Gj5a6c6Jit57ij576F5p2x6Y6u5pyI55yJ6LevNTIw5be3MuiZnw!5e0!3m2!1szh-TW!2stw!4v1492569849112" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
   </div>
   <div class="contact-foot" style="line-height:150%;padding-top:50px;">
     <span>松昌股份有限公司</span>

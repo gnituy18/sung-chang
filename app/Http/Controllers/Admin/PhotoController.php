@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Photo;
+use Intervention\Image\Facades\Image as Image;
 use App\Http\Controllers\Controller;
 
 class PhotoController extends Controller
@@ -50,6 +51,9 @@ class PhotoController extends Controller
     public function store(Request $request, Product $product)
     {
         $path = $request->file('photo')->store('photos');
+        $url = Storage::url($path);
+        $img = Image::make($path)->orientate();
+        $img->save($path);
         $photo = new Photo;
         $photo->path = $path;
         $photo->name = $request->name;
