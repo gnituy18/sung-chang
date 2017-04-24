@@ -1,5 +1,6 @@
 <?php
 use App\Models\Photo;
+use App\Models\Product;
 
 $domainName = explode('://', config('app.url'))[1];
 
@@ -44,7 +45,7 @@ Route::group(['domain' => 'admin.'.$domainName], function () {
 });
 
 Route::get('/', function () {
-    return view('about', [ ]);
+    return view('about');
 })->name('about');
 
 Route::get('log', function () {
@@ -56,5 +57,9 @@ Route::get('contact', function () {
 })->name('contact');
 
 Route::get('{product}', function (App\Models\Product $product) {
-    return view('product', ['activeProduct'=> $product, 'currentCategory' => $product->category, 'photos' => Photo::where('product_id', $product->id)->orderBy('order')->get()]);
+    return view('product', [
+        'activeProduct'=> $product,
+        'currentCategory' => $product->category,
+        'photos' => Photo::where('product_id', $product->id)->orderBy('order')->get()
+    ]);
 })->name('product');

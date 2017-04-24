@@ -18,21 +18,18 @@
     </div>
     <div class="previews">
       @foreach ($photos as $photo)
-        <div id="{{ $photo->name }}" class="thumbnail" style="background-image:url({{$photo->path}})">
-
-        </div>
-
+        <div id="{{ $photo->name }}" class="thumbnail" style="background-image:url({{$photo->path}})"></div>
       @endforeach
     </div>
   </div>
   <div class="photo-wall">
     @foreach ($photos as $photo)
-      <img class="photo-brick" src="{{ $photo->path }}" alt="{{ $photo->name }}">
+      <div class="photo-brick" src="{{$photo->path}}" style="background-image:url({{$photo->path}});"></div>
     @endforeach
   </div>
   <div id="modal" class="modal">
     <span class="close">&times;</span>
-    <img id="modal-img" class="modal-content"></img>
+    <div id="modal-img" class="modal-image"></div>
   </div>
   <script type="text/javascript">
     var bricks = window.document.getElementsByClassName('photo-brick')
@@ -45,7 +42,7 @@
     closeIcon.onclick = closeModal
     function showModal() {
       modal.style.display = "block"
-      modalImg.src = this.src
+      modalImg.style.cssText = this.style.cssText;
     }
     function closeModal() {
       console.log('ss')

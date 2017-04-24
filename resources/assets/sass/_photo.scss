@@ -46,11 +46,13 @@
 }
 
 .photo-brick {
-  display        : inline-block;
-  width          : 32vw;
-  height         : 32vw;
-  margin-bottom  : 3px;
-  vertical-align : top;
+  display             : inline-block;
+  width               : 32vw;
+  height              : 32vw;
+  margin-bottom       : 3px;
+  background-position : center;
+  background-size     : cover;
+  vertical-align      : top;
 }
 
 .modal {
@@ -66,11 +68,13 @@
   background-color : rgba(0,0,0,0.4);
 }
 
-.modal-content {
-  display : block;
-  width   : 90vw;
-  height  : 90vw;
-  margin  : auto;
+.modal-image {
+  display             : block;
+  width               : 90vw;
+  height              : 90vw;
+  margin              : auto;
+  background-position : center;
+  background-size     : cover;
 }
 
 .close {

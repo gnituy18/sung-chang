@@ -1,0 +1,9 @@
+.about-pic {
+  display      : inline-block;
+  min-width    : 100px;
+  padding-left : 40px;
+  @media only screen
+         and (max-width : $container-width) {
+    padding-left : 15px;
+  }
+}

@@ -12,7 +12,7 @@
         <span style="display:inline-block">
           {{$category->name}} {{$category->eng_name}}<br>
           <ul class="sub-menu">
-            @foreach ($category->products as $product)
+            @foreach ($category->products->sortBy('order') as $product)
               <li><a href="{{ route('product',['product'=>$product->eng_name]) }}">{{$product->name}} {{$product->eng_name}}</a></li>
             @endforeach
           </ul>
