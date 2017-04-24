@@ -56,5 +56,5 @@ Route::get('contact', function () {
 })->name('contact');
 
 Route::get('{product}', function (App\Models\Product $product) {
-    return view('product', ['activeProduct'=> $product, 'currentCategory' => $product->category]);
+    return view('product', ['activeProduct'=> $product, 'currentCategory' => $product->category, 'photos' => Photo::where('product_id', $product->id)->orderBy('order')->get()]);
 })->name('product');

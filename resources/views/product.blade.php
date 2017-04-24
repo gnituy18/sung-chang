@@ -17,7 +17,7 @@
       <span style="text-shadow: 0 0 2px white;" id="name"></span>
     </div>
     <div class="previews">
-      @foreach ($activeProduct->photos as $photo)
+      @foreach ($photos as $photo)
         <div id="{{ $photo->name }}" class="thumbnail" style="background-image:url({{$photo->path}})">
 
         </div>
@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="photo-wall">
-    @foreach ($activeProduct->photos as $photo)
+    @foreach ($photos as $photo)
       <img class="photo-brick" src="{{ $photo->path }}" alt="{{ $photo->name }}">
     @endforeach
   </div>
