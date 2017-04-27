@@ -51,7 +51,9 @@ class PhotoController extends Controller
     public function store(Request $request, Product $product)
     {
         $path = $request->file('photo')->store('photos');
-        $img = Image::make($path)->orientate()->save($path);
+        $img = Image::make($path)->orientate()->resize(1000, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($path);
         $photo = new Photo;
         $photo->path = $path;
         $photo->name = $request->name;
