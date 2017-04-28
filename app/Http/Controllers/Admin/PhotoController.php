@@ -14,12 +14,23 @@ class PhotoController extends Controller
 {
     public function update(Request $request, Photo $photo)
     {
-        if ($request->order !== $photo->order) {
-            $photoSwitch = Photo::where('product_id', $photo->product_id)->where('order', $request->order)->first();
-            $temp = $photo->order;
-            $photo->order = $photoSwitch->order;
-            $photoSwitch->order = $temp;
-            $photoSwitch->save();
+        if ($request->order < $photo->order) {
+            $photos = Photo::where('product_id', $photo->product_id)->where('order', '>=', $request->order)->where('order', '<', $photo->order)->get();
+
+            foreach ($photos as $p) {
+                $p->order += 1;
+                $p->save();
+            }
+            $photo->order = $request->order;
+        }
+        if ($request->order > $photo->order) {
+            $photos = Photo::where('product_id', $photo->product_id)->where('order', '<=', $request->order)->where('order', '>', $photo->order)->get();
+
+            foreach ($photos as $p) {
+                $p->order -= 1;
+                $p->save();
+            }
+            $photo->order = $request->order;
         }
 
         $photo->name = $request->name;
